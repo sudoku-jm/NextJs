@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Next14
 
-## Getting Started
+### 강의 자료 참고
 
-First, run the development server:
+-   강의 교안
+    https://github.com/ZeroCho/next-app-router-z/blob/master/README.md
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-   깃헙 예제 코드
+    https://github.com/zerocho/next-app-router-z
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   백엔드 스웨거 문서
+    https://z.nodebird.com/api
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   관련 강의 : 리액트 무료 강좌
+    https://inf.run/LWuoL
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   리액트 압축 강좌
+    https://www.youtube.com/watch?v=We9W395EUmw
