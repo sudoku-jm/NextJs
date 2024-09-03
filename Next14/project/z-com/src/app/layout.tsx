@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+// 루트레이아웃(로그인 전후의 레이아웃이 다름.)
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
