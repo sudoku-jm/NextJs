@@ -1,11 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import style from "./post.module.css";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
-import ActionButtons from "./ActionButton";
+import ActionButtons from "@/app/(afterLogin)/_component/ActionButton";
+import PostArticle from "@/app/(afterLogin)/_component/PostArticle";
 
 dayjs.locale("ko");
 dayjs.extend(relativeTime);
@@ -13,17 +12,18 @@ dayjs.extend(relativeTime);
 export default function Post() {
     const target = {
         //서버데이터
+        postId: 1,
         User: {
-            id: "elonmusk",
-            nickname: "Elon Musk",
-            image: "/yRsRRjGO.jpg",
+          id: 'elonmusk',
+          nickname: 'Elon Musk',
+          image: '/yRsRRjGO.jpg',
         },
-        content: "클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ",
+        content: '클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ',
         createdAt: new Date(),
-        Images: [],
-    };
+        Images: []
+      }
     return (
-        <article className={style.post}>
+        <PostArticle post={target}>
             <div className={style.postWrapper}>
                 <div className={style.postUserSection}>
                     <Link
@@ -58,6 +58,6 @@ export default function Post() {
                     <ActionButtons />
                 </div>
             </div>
-        </article>
+        </PostArticle>
     );
 }

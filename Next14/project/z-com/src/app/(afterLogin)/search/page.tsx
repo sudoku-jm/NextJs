@@ -5,7 +5,7 @@ import BackButton from "@/app/(afterLogin)/_component/BackButton";
 import Tab from "@/app/(afterLogin)/search/_component/Tab";
 
 type Props = {
-    searchParams: { q: string };
+    searchParams: { q: string , f? : string, pf? : string };
 };
 export default function Search({ searchParams }: Props) {
     return (
@@ -19,7 +19,7 @@ export default function Search({ searchParams }: Props) {
                         <SearchForm q={searchParams.q} />
                     </div>
                 </div>
-                {/* <Tab /> */}
+                <Tab />
             </div>
             <div className={style.list}>
                 <Post />
