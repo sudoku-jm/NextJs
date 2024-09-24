@@ -1,6 +1,7 @@
 import style from "./profile.module.css";
 import BackButton from "@/app/(afterLogin)/_component/BackButton";
 import Post from "@/app/(afterLogin)/_component/Post";
+//유저 프로필 페이지
 export default function Profile() {
     const user = {
         id: "zerohch0",

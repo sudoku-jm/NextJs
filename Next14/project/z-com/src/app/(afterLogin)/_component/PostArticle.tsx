@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { ReactNode } from "react";
 import style from "./post.module.css";
 import { useRouter } from "next/navigation";
@@ -14,27 +14,28 @@ createdAt: new Date(),
 Images: [],
     */
 type Props = {
-    children : ReactNode,
-    post : {
-        postId : number,
-        User : {
-            id : string,
-            nickname : string,
-            image : string
-        }
-        content : string,
-        createdAt : Date,
-        Images: any[],
-    }
-}
+    children: ReactNode;
+    post: {
+        postId: number;
+        User: {
+            id: string;
+            nickname: string;
+            image: string;
+        };
+        content: string;
+        createdAt: Date;
+        Images: any[]; //아무 배열이나 다 된다.
+    };
+};
 
-
-export default function PostArticle({children, post} : Props){
+export default function PostArticle({ children, post }: Props) {
     const router = useRouter();
     const onclick = ({}) => {
         router.push(`/${post.User.id}/status/${post.postId}`);
-    }
+    };
     return (
-        <article onClickCapture={onclick} className={style.post}>{children}</article>
-    )
+        <article onClickCapture={onclick} className={style.post}>
+            {children}
+        </article>
+    );
 }
