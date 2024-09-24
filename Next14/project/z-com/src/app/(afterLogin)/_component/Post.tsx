@@ -5,6 +5,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 import ActionButtons from "@/app/(afterLogin)/_component/ActionButton";
 import PostArticle from "@/app/(afterLogin)/_component/PostArticle";
+import PostImages from "@/app/(afterLogin)/_component/PostImages";
 import { faker } from "@faker-js/faker";
 
 dayjs.locale("ko");
@@ -31,6 +32,9 @@ export default function Post({ noImage }: Props) {
     //post에 이미지를 넣거나 안넣거나 반반 확률
     if (Math.random() > 0.5 && !noImage) {
         target.Images.push({ imageId: 1, link: faker.image.urlLoremFlickr() });
+        target.Images.push({ imageId: 2, link: faker.image.urlLoremFlickr() });
+        target.Images.push({ imageId: 3, link: faker.image.urlLoremFlickr() });
+        target.Images.push({ imageId: 4, link: faker.image.urlLoremFlickr() });
     }
 
     return (
@@ -66,17 +70,7 @@ export default function Post({ noImage }: Props) {
                     </div>
                     <div>{target.content}</div>
                     <div className={style.postImageSection}>
-                        {/* 이미지가 있고, 이미지 수가 0보다 클 경우 = 이미지가 있으면 이미지 랜더링 */}
-                        {target.Images && target.Images.length > 0 && (
-                            <>
-                                <Link
-                                    href={`/${target.User.id}/status/${target.postId}/photo/${target.Images[0].imageId}`}
-                                    className={style.postImageSection}
-                                >
-                                    <img src={target.Images[0]?.link} alt="" />
-                                </Link>
-                            </>
-                        )}
+                        <PostImages post={target} />
                     </div>
                     <ActionButtons />
                 </div>
