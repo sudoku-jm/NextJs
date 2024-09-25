@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { MSWComponent } from "@/app/_component/MSWComponent";
+
 // 루트레이아웃(로그인 전후의 레이아웃이 다름.)
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,10 @@ type Props = {
 export default function RootLayout({ children }: Props) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <MSWComponent />
+                {children}
+            </body>
         </html>
     );
 }
