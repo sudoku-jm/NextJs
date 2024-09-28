@@ -1,14 +1,20 @@
 "use client";
 
 import Main from "@/app/(beforeLogin)/_component/Main";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+//로그인 페이지.
 export default function Login() {
     const router = useRouter();
-    router.replace('/i/flow/login');
-    return <Main/>;
-
+    const { data: session } = useSession();
+    if (session?.user) {
+        //로그인 한 상태에 해당 페이지 접근 시 /home으로 리다이렉트
+        router.replace("/home");
+        return null;
+    }
+    router.replace("/i/flow/login");
+    return <Main />;
 }
-
 
 // router.push
 // 뒤로가기하면 /login으로 감

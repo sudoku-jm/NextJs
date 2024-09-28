@@ -1,6 +1,8 @@
 "use server"; //서버액션 Server Action
 
 import { redirect } from "next/navigation";
+import { signIn } from "@/auth"; //서버이기 때문에 이렇게
+
 export default async (prevState: any, formData: FormData) => {
     //데이터 검증
     // id, name, password의 경우는 string인것을 보장해서 trim()시킨다.
@@ -41,6 +43,11 @@ export default async (prevState: any, formData: FormData) => {
 
         console.log(await response.json());
         shouldRedirect = true;
+        await signIn("credentials", {
+            username: formData.get("id"),
+            password: formData.get("password"),
+            redirect: false, //true로 하면 서버쪽에서 리다이렉터를 하기때문에 , 클라이언트 컴포넌트는 router.replace('/home');와 같이 클라이언트에서 리다이렉트한다.
+        });
     } catch (err) {
         console.error(err);
         return; //에러의 경우 아래 실행 안함
@@ -48,6 +55,5 @@ export default async (prevState: any, formData: FormData) => {
 
     if (shouldRedirect) {
         redirect("/home");
-        return undefined;
     }
 };

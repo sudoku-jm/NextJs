@@ -35,7 +35,13 @@ export const {
 
                 //로그인 성공
                 const user = await authResponse.json();
-                return user; //로그인 한 유저정보를 리턴해서 내려준다.
+                console.log("user>>>", user);
+                return {
+                    email: user.id,
+                    name: user.nickname, //typescript에서 에러가나서 이런식으로 우회
+                    image: user.image,
+                    ...user,
+                }; //로그인 한 유저정보를 리턴해서 내려준다.
             },
         }),
     ],
