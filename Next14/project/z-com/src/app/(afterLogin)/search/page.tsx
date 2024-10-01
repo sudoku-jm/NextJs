@@ -1,12 +1,13 @@
 import style from "./search.module.css";
-import Post from "@/app/(afterLogin)/_component/Post";
 import SearchForm from "@/app/(afterLogin)/_component/SearchForm";
 import BackButton from "@/app/(afterLogin)/_component/BackButton";
 import Tab from "@/app/(afterLogin)/search/_component/Tab";
+import SearchResult from "@/app/(afterLogin)/search/_component/SearchResult";
 
 type Props = {
-    searchParams: { q: string , f? : string, pf? : string };
+    searchParams: { q: string; f?: string; pf?: string };
 };
+// 주소 파라미터 searchParams
 export default function Search({ searchParams }: Props) {
     return (
         <main className={style.main}>
@@ -22,8 +23,8 @@ export default function Search({ searchParams }: Props) {
                 <Tab />
             </div>
             <div className={style.list}>
-                <Post />
-                {/*<SearchResult searchParams={searchParams} />*/}
+                {/* SearchResult : 검색 리스트 호출 컴포넌트*/}
+                <SearchResult searchParams={searchParams} />
             </div>
         </main>
     );

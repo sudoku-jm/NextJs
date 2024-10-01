@@ -1,13 +1,13 @@
-import Tab from "@/app/(afterLogin)/home/_component/Tab";
-import PostForm from "@/app/(afterLogin)/home/_component/PostForm";
 import style from "./home.module.css";
-import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
 import {
     dehydrate,
     HydrationBoundary,
     QueryClient,
 } from "@tanstack/react-query";
-import PostRecommends from "@/app/(afterLogin)/home/_component/PostRecommends";
+import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
+import TabDecider from "@/app/(afterLogin)/home/_component/TabDecider";
+import Tab from "@/app/(afterLogin)/home/_component/Tab";
+import PostForm from "@/app/(afterLogin)/home/_component/PostForm";
 import { getPostRecommends } from "@/app/(afterLogin)/home/_lib/getPostRecommends";
 
 // /home 페이지
@@ -43,7 +43,9 @@ export default async function Home() {
                 <TabProvider>
                     <Tab />
                     <PostForm />
-                    <PostRecommends />
+                    {/* TabDecider : tab의 값에 따라 Post 리스트 컴포넌트가 다르게 노출. 
+                    tab의 값은 tabContext에서 관리*/}
+                    <TabDecider />
                 </TabProvider>
             </HydrationBoundary>
         </main>
