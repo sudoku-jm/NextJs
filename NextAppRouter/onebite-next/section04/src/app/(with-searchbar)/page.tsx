@@ -6,7 +6,6 @@ import { BookData } from "@/types";
 async function AllBooks() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
-    { cache: "no-store" },
   );
   //캐시되지 않는 요청으로 설정
   // 인덱스 페이지 접속할 때마다 매번 새롭게 모든 도서의 데이터를 불러오게 됨.
