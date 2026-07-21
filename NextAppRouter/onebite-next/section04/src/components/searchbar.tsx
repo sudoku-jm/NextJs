@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import style from "./serachbar.module.css";
 
+//사전렌더링에서는 배제되도록한다.
 export default function Searchbar() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  //쿼리스트링을 가져오는 역할. 빌드타임에는 절대 존재할 수 없음.
   const [search, setSearch] = useState("");
 
   const q = searchParams.get("q");

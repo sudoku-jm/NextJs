@@ -6,6 +6,7 @@ import { BookData } from "@/types";
 async function AllBooks() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: "force-cache" }, //강제로 캐시되도록 옵션 적용.
   );
   //캐시되지 않는 요청으로 설정
   // 인덱스 페이지 접속할 때마다 매번 새롭게 모든 도서의 데이터를 불러오게 됨.
@@ -28,7 +29,7 @@ async function AllBooks() {
 async function RecoBooks() {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
-    { next: { revalidate: 3 } },
+    { next: { revalidate: 3 } }, //e
   );
   // 3초마다 업데이트
   if (!response.ok) {
