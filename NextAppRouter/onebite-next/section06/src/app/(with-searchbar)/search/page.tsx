@@ -1,5 +1,6 @@
 import BookItem from "@/components/book-item";
 import { BookData } from "@/types";
+import { delay } from "../../../util/delay";
 
 // export const dynamic = "error";
 
@@ -10,6 +11,7 @@ export default async function Page({
   searchParams: Promise<{ q?: string }>;
 }) {
   const { q } = await searchParams;
+  await delay(1500); //1.5초 지연을 일부러 시켜본다.
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`,
     { cache: "force-cache" },
