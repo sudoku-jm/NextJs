@@ -1,16 +1,11 @@
 import BookItem from "@/components/book-item";
 import { BookData } from "@/types";
 import { delay } from "../../../util/delay";
+import { Suspense } from "react";
 
 // export const dynamic = "error";
 
-// 도서 검색 서버컴포넌트
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>;
-}) {
-  const { q } = await searchParams;
+async function SearchResult({ q }: { q: string }) {
   await delay(1500); //1.5초 지연을 일부러 시켜본다.
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`,
@@ -27,6 +22,21 @@ export default async function Page({
         <BookItem key={book.id} {...book} />
       ))}
     </div>
+  );
+}
+
+// 도서 검색 서버컴포넌트
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
+  const { q } = await searchParams;
+  return (
+    <Suspense key={q || ""} fallback={<div>Loading...</div>}>
+      {/* q에 값이 없으면 "" 빈값 넘기기 */}
+      <SearchResult q={q || ""} />
+    </Suspense>
   );
 }
 
