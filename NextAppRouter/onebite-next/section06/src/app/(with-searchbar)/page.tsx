@@ -43,7 +43,7 @@ async function RecoBooks() {
   await delay(3000);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
-    { next: { revalidate: 3 } }, //e
+    { next: { revalidate: 3 } },
   );
   // 3초마다 업데이트
   if (!response.ok) {
